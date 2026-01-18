@@ -1,0 +1,8 @@
+extends Area2D
+
+signal player_got_close
+signal player_got_far
+signal player_focused
+signal player_unfocused
+
+signal player_initiated_interaction

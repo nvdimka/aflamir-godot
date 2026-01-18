@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ungta0ykbdyw"]
+
+[ext_resource type="Texture2D" uid="uid://rmqxs0tlgthy" path="res://icon.svg" id="1_niuxy"]
+[ext_resource type="Script" uid="uid://cjjayalkxfiki" path="res://actors/player/player.gd" id="2_mvpqy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvpqy"]
+radius = 76.00658
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ilk7j"]
+radius = 140.35669
+
+[node name="Root" type="CharacterBody2D"]
+visibility_layer = 2
+collision_layer = 3
+script = ExtResource("2_mvpqy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mvpqy")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_niuxy")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -151.0
+offset_right = 20.0
+offset_bottom = -128.0
+
+[node name="NPCDetection" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCDetection"]
+shape = SubResource("CircleShape2D_ilk7j")
+debug_color = Color(0.87205565, 0.29327372, 0.49270117, 0.41960785)
+
+[connection signal="area_shape_entered" from="NPCDetection" to="." method="_on_npc_detection_area_shape_entered"]
+[connection signal="area_shape_exited" from="NPCDetection" to="." method="_on_npc_detection_area_shape_exited"]

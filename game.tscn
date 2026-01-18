@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5hvmt8w5g4jk"]
+
+[ext_resource type="PackedScene" uid="uid://ungta0ykbdyw" path="res://actors/player/player.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://cdq05cqkpwlqf" path="res://actors/npcs/Crayons.tscn" id="2_e2o6t"]
+
+[node name="ExplorationScreen" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_80nbo")]
+position = Vector2(1121, 237)
+
+[node name="Crayons" parent="." instance=ExtResource("2_e2o6t")]
+position = Vector2(473, 390)

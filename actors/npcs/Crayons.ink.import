@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://dx58xrkjke8p7"
+path="res://.godot/imported/Crayons.ink-4598dc98ff23f1080f94440c1e50c318.res"
+
+[deps]
+
+source_file="res://actors/npcs/Crayons.ink"
+dest_files=["res://.godot/imported/Crayons.ink-4598dc98ff23f1080f94440c1e50c318.res"]
+
+[params]
+
+is_main_file=true
+compress=true
