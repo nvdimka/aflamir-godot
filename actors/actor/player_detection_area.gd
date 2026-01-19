@@ -1,8 +1,13 @@
 extends Area2D
 
+
 signal player_got_close
 signal player_got_far
 signal player_focused
 signal player_unfocused
 
-signal player_initiated_interaction
+signal player_started_interaction
+signal player_ended_interaction
+
+signal scrolled_paragraphs
+signal choice_selected

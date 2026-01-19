@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvm5jmucjqipd"]
+[gd_scene load_steps=6 format=3 uid="uid://cvm5jmucjqipd"]
 
 [ext_resource type="Script" uid="uid://bkbjlhu6a1a6v" path="res://actors/actor/actor.gd" id="1_6bo3g"]
 [ext_resource type="Texture2D" uid="uid://rmqxs0tlgthy" path="res://icon.svg" id="1_louo0"]
-[ext_resource type="Theme" uid="uid://b4g580rknv371" path="res://themes/base_theme.tres" id="3_5stno"]
 [ext_resource type="Script" uid="uid://dgyfut85dwyfm" path="res://actors/actor/player_detection_area.gd" id="3_pi73g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_louo0"]
@@ -11,9 +10,7 @@ radius = 90.02222
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbes0"]
 radius = 259.01736
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w4kyd"]
-
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Root" type="CharacterBody2D"]
 script = ExtResource("1_6bo3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -30,46 +27,16 @@ script = ExtResource("3_pi73g")
 shape = SubResource("CircleShape2D_qbes0")
 debug_color = Color(0.6592019, 0.50655437, 0.27160555, 0.41960785)
 
-[node name="Panel" type="Panel" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -68.75
-offset_top = -111.0
-offset_right = 68.75
-offset_bottom = -73.0
-grow_horizontal = 2
-theme = ExtResource("3_5stno")
-
-[node name="Label" type="Label" parent="Panel"]
-material = SubResource("CanvasItemMaterial_w4kyd")
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -28.5
-offset_top = -11.5
-offset_right = 28.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Press A"
-horizontal_alignment = 1
-
-[node name="FocusLabel" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 58.75
-offset_top = -27.0
-offset_right = 98.75
-offset_bottom = -4.0
-text = "F"
+[node name="ActionSprite" type="Sprite2D" parent="." groups=["actor_icons"]]
+unique_name_in_owner = true
+position = Vector2(0, -125)
 
 [connection signal="area_shape_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_shape_entered"]
 [connection signal="area_shape_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_shape_exited"]
+[connection signal="player_ended_interaction" from="PlayerDetectionArea" to="." method="_on_player_ended_interaction"]
 [connection signal="player_focused" from="PlayerDetectionArea" to="." method="_on_player_focused"]
 [connection signal="player_got_close" from="PlayerDetectionArea" to="." method="_on_player_got_close"]
 [connection signal="player_got_far" from="PlayerDetectionArea" to="." method="_on_player_got_far"]
-[connection signal="player_initiated_interaction" from="PlayerDetectionArea" to="." method="_on_player_initiated_interaction"]
+[connection signal="player_started_interaction" from="PlayerDetectionArea" to="." method="_on_player_started_interaction"]
 [connection signal="player_unfocused" from="PlayerDetectionArea" to="." method="_on_player_unfocused"]
+[connection signal="scrolled_paragraphs" from="PlayerDetectionArea" to="." method="_on_scrolled_paragraphs"]

@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://dvawvlr7clhij"]
+
+[ext_resource type="FontFile" uid="uid://babrqrl0qj2f3" path="res://ui/fonts/pt_serif/PTSerif-Regular.ttf" id="1_aouao"]
+
+[resource]
+base_font = ExtResource("1_aouao")

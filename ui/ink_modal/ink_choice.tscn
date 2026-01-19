@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://qh6usriewmdr"]
+
+[ext_resource type="FontVariation" uid="uid://dvawvlr7clhij" path="res://ui/fonts/pt_serif/pt_serif.tres" id="1_qfa53"]
+
+[node name="InkChoice" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_qfa53")
+theme_override_font_sizes/font_size = 26
+text = "Chooooose"
+alignment = 0

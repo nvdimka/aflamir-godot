@@ -3,12 +3,12 @@
 importer="ink"
 type="Resource"
 uid="uid://dx58xrkjke8p7"
-path="res://.godot/imported/Crayons.ink-4598dc98ff23f1080f94440c1e50c318.res"
+path="res://.godot/imported/crayons.ink-c6845cbf4720bd9d5677455c977e7184.res"
 
 [deps]
 
-source_file="res://actors/npcs/Crayons.ink"
-dest_files=["res://.godot/imported/Crayons.ink-4598dc98ff23f1080f94440c1e50c318.res"]
+source_file="res://actors/npcs/crayons.ink"
+dest_files=["res://.godot/imported/crayons.ink-c6845cbf4720bd9d5677455c977e7184.res"]
 
 [params]
 
