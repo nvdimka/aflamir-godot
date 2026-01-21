@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ungta0ykbdyw"]
+
+[ext_resource type="Texture2D" uid="uid://rmqxs0tlgthy" path="res://icon.svg" id="1_niuxy"]
+[ext_resource type="Script" uid="uid://cjjayalkxfiki" path="res://player/player.gd" id="2_mvpqy"]
+[ext_resource type="PackedScene" uid="uid://cctj84l2ck1fh" path="res://ui/ink_modal/ink_modal.tscn" id="3_g1dw6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvpqy"]
+radius = 76.00658
+
+[node name="Root" type="CharacterBody2D"]
+visibility_layer = 2
+collision_layer = 2
+script = ExtResource("2_mvpqy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mvpqy")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_niuxy")
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="InkModal" parent="Canvas" instance=ExtResource("3_g1dw6")]
+unique_name_in_owner = true
+visible = false

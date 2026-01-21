@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://ci1sr5hf40qjp"]
-
-[ext_resource type="PackedScene" uid="uid://cvm5jmucjqipd" path="res://actors/actor/actor.tscn" id="1_mkhad"]
-[ext_resource type="Resource" uid="uid://dv2k5rhsjy8rx" path="res://actors/npcs/tent.ink" id="2_mkhad"]
-
-[node name="Tent" type="Node2D"]
-
-[node name="Root" parent="." instance=ExtResource("1_mkhad")]
-story = ExtResource("2_mkhad")

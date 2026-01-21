@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://signal_bus.gd"
 Globals="*res://globals.gd"
+Utils="*res://utils.gd"
 
 [debug]
 
@@ -28,7 +29,10 @@ gdscript/warnings/unused_signal=0
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/mode="viewport"
+window/size/initial_position=Vector2i(0, 110)
+window/size/resizable=false
+window/size/borderless=true
+window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
 [dotnet]
@@ -41,7 +45,8 @@ enabled=PackedStringArray("res://addons/GodotInk/plugin.cfg", "res://addons/mark
 
 [global_group]
 
-actor_icons="UI hints on actors"
+inkables_near_player="Actors with Ink who are near player"
+inkable_focus_sprites="UI hints on actors"
 
 [input]
 
