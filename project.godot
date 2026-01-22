@@ -45,8 +45,8 @@ enabled=PackedStringArray("res://addons/GodotInk/plugin.cfg", "res://addons/mark
 
 [global_group]
 
-inkables_near_player="Actors with Ink who are near player"
-inkable_focus_sprites="UI hints on actors"
+interactives_near_player="Actors with Ink who are near player"
+focus_sprites="UI hints on actors"
 
 [input]
 

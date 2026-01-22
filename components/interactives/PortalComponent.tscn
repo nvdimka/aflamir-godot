@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgglgx2bn55m6"]
+
+[ext_resource type="Script" uid="uid://dj3r1h42sr4tl" path="res://components/interactives/portal_component.gd" id="1_58svl"]
+[ext_resource type="Texture2D" uid="uid://cloqhisvnadkj" path="res://debug_mark.png" id="2_huh3e"]
+
+[node name="PortalComponent" type="Node2D"]
+script = ExtResource("1_58svl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_huh3e")

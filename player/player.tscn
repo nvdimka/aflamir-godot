@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://ungta0ykbdyw"]
+[gd_scene load_steps=5 format=3 uid="uid://b0b32yll1ttxk"]
 
-[ext_resource type="Texture2D" uid="uid://rmqxs0tlgthy" path="res://icon.svg" id="1_niuxy"]
+[ext_resource type="Texture2D" uid="uid://dwtykac4clgkb" path="res://npc.png" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://cjjayalkxfiki" path="res://player/player.gd" id="2_mvpqy"]
-[ext_resource type="PackedScene" uid="uid://cctj84l2ck1fh" path="res://ui/ink_modal/ink_modal.tscn" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://cctj84l2ck1fh" path="res://ui/ink_modal/InkModal.tscn" id="3_g1dw6"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mvpqy"]
-radius = 76.00658
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1dw6"]
+height = 56.0
 
-[node name="Root" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 visibility_layer = 2
 collision_layer = 2
 script = ExtResource("2_mvpqy")
@@ -15,10 +15,13 @@ script = ExtResource("2_mvpqy")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_mvpqy")
+position = Vector2(0, 4)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_g1dw6")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_niuxy")
+position = Vector2(-4, -61)
+texture = ExtResource("2_g1dw6")
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 

@@ -2,7 +2,7 @@ extends Control
 
 
 var choice_idx: int
-var choice_button_path = "res://ui/ink_modal/ink_choice.tscn"
+var choice_button_path = "res://ui/ink_modal/InkChoice.tscn"
 
 @onready var Paragraphs: MarkdownLabel = %Paragraphs
 @onready var Scroll: ScrollContainer = %Scroll

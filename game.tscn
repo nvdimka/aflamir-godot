@@ -1,41 +1,108 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5hvmt8w5g4jk"]
+[gd_scene load_steps=11 format=3 uid="uid://c5hvmt8w5g4jk"]
 
-[ext_resource type="PackedScene" uid="uid://ungta0ykbdyw" path="res://player/player.tscn" id="1_80nbo"]
-[ext_resource type="Texture2D" uid="uid://rmqxs0tlgthy" path="res://icon.svg" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://bj257a03i6170" path="res://components/Inkable.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://b0b32yll1ttxk" path="res://player/player.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://bqdq3f4rvjm8w" path="res://components/interactives/InteractiveComponent.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://122ahlwaldok" path="res://actors/Crayons.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://bqfql2d13f0h6" path="res://components/FocusComponent.tscn" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://1f4iymc6ng3n" path="res://components/interactives/InkComponent.tscn" id="5_7jktm"]
+[ext_resource type="Texture2D" uid="uid://dye8df274mge3" path="res://tent.png" id="6_ryrav"]
+[ext_resource type="PackedScene" uid="uid://dgglgx2bn55m6" path="res://components/interactives/PortalComponent.tscn" id="7_eow3j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_feb5d"]
-radius = 73.00685
+radius = 5.2473764
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fc0e3"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eow3j"]
+radius = 6.2668686
+height = 23.428757
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eow3j"]
+radius = 5.2473764
 
 [node name="ExplorationScreen" type="Node2D"]
 
-[node name="player" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(1325, 220)
+[node name="Label" type="Label" parent="."]
+offset_left = 1020.0
+offset_top = 68.0
+offset_right = 1443.0
+offset_bottom = 226.0
+theme_override_font_sizes/font_size = 116
+text = "LEVEL 1"
 
-[node name="Crayons" type="StaticBody2D" parent="."]
-position = Vector2(698, 430)
+[node name="Label2" type="Label" parent="."]
+offset_left = 3460.0
+offset_top = 257.0
+offset_right = 3883.0
+offset_bottom = 415.0
+theme_override_font_sizes/font_size = 116
+text = "LEVEL 2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crayons"]
+[node name="Player" parent="." instance=ExtResource("1_80nbo")]
+position = Vector2(709, 596)
+
+[node name="CrayonsInteractive" parent="." node_paths=PackedStringArray("InteractionComponent", "FocusSprite") instance=ExtResource("2_e2o6t")]
+position = Vector2(348, 681)
+InteractionComponent = NodePath("InkComponent")
+FocusSprite = NodePath("FocusSprite")
+
+[node name="PlayerDetection" type="CollisionShape2D" parent="CrayonsInteractive"]
+scale = Vector2(24.015, 24.015)
 shape = SubResource("CircleShape2D_feb5d")
+debug_color = Color(0.7578018, 0.43440104, 0.36946902, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="Crayons"]
-texture = ExtResource("2_e2o6t")
+[node name="CrayonsSprite" parent="CrayonsInteractive" instance=ExtResource("3_feb5d")]
 
-[node name="Inkable" parent="Crayons" instance=ExtResource("3_feb5d")]
+[node name="FocusSprite" parent="CrayonsInteractive" instance=ExtResource("4_fc0e3")]
+position = Vector2(1, -143)
+
+[node name="InkComponent" parent="CrayonsInteractive" instance=ExtResource("5_7jktm")]
 knot = "crayons"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crayons/Inkable"]
-scale = Vector2(34.75, 34.75)
-shape = SubResource("CircleShape2D_fc0e3")
-debug_color = Color(0.7953367, 0.40196246, 0.37919506, 0.41960785)
+[node name="TentEntranceInteractive" parent="." node_paths=PackedStringArray("InteractionComponent", "FocusSprite") instance=ExtResource("2_e2o6t")]
+position = Vector2(1099, 410)
+InteractionComponent = NodePath("TentEntrance")
+FocusSprite = NodePath("StaticBody2D/FocusSprite")
 
-[node name="Inkable" parent="." instance=ExtResource("3_feb5d")]
-position = Vector2(1166, 718)
-knot = "test"
+[node name="StaticBody2D" type="StaticBody2D" parent="TentEntranceInteractive"]
+position = Vector2(5, -3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inkable"]
-scale = Vector2(34.75, 34.75)
-shape = SubResource("CircleShape2D_fc0e3")
-debug_color = Color(0.7953367, 0.40196246, 0.37919506, 0.41960785)
+[node name="Tent" type="Sprite2D" parent="TentEntranceInteractive/StaticBody2D"]
+position = Vector2(20, 41)
+texture = ExtResource("6_ryrav")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TentEntranceInteractive/StaticBody2D"]
+position = Vector2(-2.0000005, 81)
+rotation = 1.8336228
+scale = Vector2(12.29, 12.29)
+shape = SubResource("CapsuleShape2D_eow3j")
+debug_color = Color(0.82088953, 0.2564601, 0.77349705, 0.41960785)
+
+[node name="FocusSprite" parent="TentEntranceInteractive/StaticBody2D" instance=ExtResource("4_fc0e3")]
+position = Vector2(-43, 71)
+
+[node name="PlayerDetection" type="CollisionShape2D" parent="TentEntranceInteractive"]
+position = Vector2(-57, 146)
+scale = Vector2(24.015, 24.015)
+shape = SubResource("CircleShape2D_eow3j")
+debug_color = Color(0.7578018, 0.43440104, 0.36946902, 0.41960785)
+
+[node name="TentEntrance" parent="TentEntranceInteractive" node_paths=PackedStringArray("PortalTarget") instance=ExtResource("7_eow3j")]
+position = Vector2(-109, 205)
+PortalTarget = NodePath("../../TentExitInteractive/TentExit")
+
+[node name="TentExitInteractive" parent="." node_paths=PackedStringArray("InteractionComponent", "FocusSprite") instance=ExtResource("2_e2o6t")]
+position = Vector2(3635, 603)
+InteractionComponent = NodePath("TentExit")
+FocusSprite = NodePath("FocusSprite")
+
+[node name="FocusSprite" parent="TentExitInteractive" instance=ExtResource("4_fc0e3")]
+position = Vector2(-71, 24)
+
+[node name="PlayerDetection" type="CollisionShape2D" parent="TentExitInteractive"]
+position = Vector2(-79.99999, 92.99999)
+scale = Vector2(24.015, 24.015)
+shape = SubResource("CircleShape2D_feb5d")
+debug_color = Color(0.7578018, 0.43440104, 0.36946902, 0.41960785)
+
+[node name="TentExit" parent="TentExitInteractive" node_paths=PackedStringArray("PortalTarget") instance=ExtResource("7_eow3j")]
+position = Vector2(-88, 150)
+PortalTarget = NodePath("../../TentEntranceInteractive/TentEntrance")
