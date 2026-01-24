@@ -1,7 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b4g580rknv371"]
-
-[ext_resource type="FontFile" uid="uid://babrqrl0qj2f3" path="res://ui/fonts/pt_serif/PTSerif-Regular.ttf" id="1_rxnwj"]
-
-[resource]
-Label/font_sizes/font_size = 24
-Label/fonts/font = ExtResource("1_rxnwj")

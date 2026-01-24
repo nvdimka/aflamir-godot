@@ -6,7 +6,7 @@ enum GameState {EXPLORATION, INK, INVENTORY}
 var game_state: GameState = GameState.EXPLORATION
 
 
-@onready var ink = load("res://inks/_main.ink")
+@onready var ink: InkStory = load("res://inks/_main.ink")
 
 
 func add_to_near_interactives(node: Node2D):

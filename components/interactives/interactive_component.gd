@@ -1,21 +1,33 @@
+@tool
+
 extends Area2D
 
-@export var InteractionComponent: Node2D
-@export var FocusSprite: Sprite2D
+@export var InteractionComponent: Node2D:
+	set(new_InteractionComponent):
+		if new_InteractionComponent != InteractionComponent:
+			InteractionComponent = new_InteractionComponent
+			update_configuration_warnings()
+@export var FocusSprite: Sprite2D:
+	set(new_FocusSprite):
+		if new_FocusSprite != FocusSprite:
+			FocusSprite = new_FocusSprite
+			update_configuration_warnings()
 
 
-func _get_configuration_warning():
+func _get_configuration_warnings():
+	var warnings = []
+
 	if not InteractionComponent:
-		return 'InteractionComponent not set'
+		warnings.append("Please set `InteractionComponent`.")
+
 	if not FocusSprite:
-		return 'FocusSprite not set'
-	return ''
+		warnings.append("Please set `FocusSprite`.")
+
+	# Returning an empty array means "no warning".
+	return warnings
 
 
-# var is_focused: bool
 var is_focused := false:
-	get:
-		return is_focused
 	set(val):
 		is_focused = val
 		if val:
@@ -33,7 +45,7 @@ func _on_player_entered(_body: Node2D) -> void:
 
 func _on_player_exited(_body: Node2D) -> void:
 	self.is_focused = false
-	FocusSprite.remove()
+	FocusSprite.remove_texture()
 	Globals.remove_from_near_interactives(self)
 	if Globals.get_focused_interactive() == null && Globals.get_all_near_interactives().size() > 0:
 		var lastInteractive = Globals.get_all_near_interactives()[-1]

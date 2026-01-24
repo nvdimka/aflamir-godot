@@ -2,26 +2,32 @@
 
 [ext_resource type="Texture2D" uid="uid://dwtykac4clgkb" path="res://npc.png" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://cjjayalkxfiki" path="res://player/player.gd" id="2_mvpqy"]
-[ext_resource type="PackedScene" uid="uid://cctj84l2ck1fh" path="res://ui/ink_modal/InkModal.tscn" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://cctj84l2ck1fh" path="res://components/ink_modal/InkModal.tscn" id="3_g1dw6"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1dw6"]
-height = 56.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
+radius = 25.179358
 
 [node name="Player" type="CharacterBody2D"]
 visibility_layer = 2
 collision_layer = 2
 script = ExtResource("2_mvpqy")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position_smoothing_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+editor_draw_drag_margin = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
-rotation = -1.5707964
-shape = SubResource("CapsuleShape2D_g1dw6")
+position = Vector2(0, -3.725)
+shape = SubResource("CircleShape2D_g1dw6")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-4, -61)
 texture = ExtResource("2_g1dw6")
+offset = Vector2(0, -90)
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 

@@ -2,7 +2,8 @@ extends Control
 
 
 var choice_idx: int
-var choice_button_path = "res://ui/ink_modal/InkChoice.tscn"
+# TODO Сделать кастомную кнопку через TextureButton для возможности отрисовки маркдауна в кнопке
+var choice_button_path = "res://components/ink_modal/InkChoice.tscn"
 
 @onready var Paragraphs: MarkdownLabel = %Paragraphs
 @onready var Scroll: ScrollContainer = %Scroll
@@ -12,10 +13,20 @@ func start(knot: String):
 	Globals.ink.ChoosePathString(knot)
 	show_next()
 
-
+# TODO вынести всю эту логику в ink_component. Здесь строго отображение текста и кнопок.
 func show_next():
 	clear_choices()
-	%Paragraphs.text = Globals.ink.ContinueMaximally()
+	var text = ""
+
+	while Globals.ink.GetCanContinue():
+		var new_paragraph = Globals.ink.Continue()
+		if new_paragraph.begins_with(">"):
+			new_paragraph = new_paragraph.remove_char(62) # removes ">"
+			new_paragraph = new_paragraph.insert(0, "[indent]")
+			new_paragraph = new_paragraph.insert(new_paragraph.length() - 1, "[/indent]")
+		text += new_paragraph
+
+	%Paragraphs.text = text
 	add_choices(Globals.ink.GetCurrentChoices())
 	for choice in ChoicesContainer.get_children():
 		# ставим фокус на первый новый выбор

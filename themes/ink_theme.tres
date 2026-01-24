@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b4g580rknv371"]
+
+[ext_resource type="FontVariation" uid="uid://dvawvlr7clhij" path="res://ui/fonts/pt_serif/pt_serif.tres" id="1_2n1pw"]
+[ext_resource type="StyleBox" uid="uid://bt7i5mxn03rm2" path="res://themes/ink_choice_button_focused.tres" id="2_bufmi"]
+[ext_resource type="StyleBox" uid="uid://c7wwuu3goevwf" path="res://themes/ink_choice_button.tres" id="2_yp4oc"]
+[ext_resource type="FontFile" uid="uid://babrqrl0qj2f3" path="res://ui/fonts/pt_serif/PTSerif-Regular.ttf" id="3_bufmi"]
+[ext_resource type="StyleBox" uid="uid://b1ccmsjmxaqwl" path="res://themes/ink_choice_button_pressed.tres" id="3_yp4oc"]
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_2n1pw")
+Button/styles/focus = ExtResource("2_bufmi")
+Button/styles/hover = ExtResource("2_bufmi")
+Button/styles/normal = ExtResource("2_yp4oc")
+Button/styles/pressed = ExtResource("3_yp4oc")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("3_bufmi")

@@ -1,15 +1,7 @@
 extends Sprite2D
 
 
-# func focus():
-# 	self.texture = load("res://ui/icons/controls/gamepad_a.png")
-
-
-# func unfocus():
-# 	self.texture = load("res://ui/icons/controls/empty_round.png")
-
-
-func remove():
+func remove_texture():
 	self.texture = null
 
 
@@ -22,4 +14,4 @@ func focus():
 
 
 func _ready() -> void:
-	remove()
+	remove_texture()

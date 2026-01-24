@@ -2,15 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://dwtykac4clgkb" path="res://npc.png" id="1_4d4vg"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wn45j"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4d4vg"]
+radius = 27.018513
 
 [node name="CrayonsSprite" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(3.945, 3.945)
-shape = SubResource("CircleShape2D_wn45j")
-debug_color = Color(0.25094834, 0.6216982, 0.3856656, 0.41960785)
+position = Vector2(3, -4)
+shape = SubResource("CircleShape2D_4d4vg")
+debug_color = Color(0.28427354, 0.5809067, 0.6894556, 0.41960785)
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(1, -64)
+y_sort_enabled = true
+position = Vector2(2, -94)
 texture = ExtResource("1_4d4vg")

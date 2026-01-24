@@ -4,5 +4,6 @@
 [ext_resource type="Script" uid="uid://c1802ed5j1oe2" path="res://components/focus_component.gd" id="2_ks448"]
 
 [node name="FocusSprite" type="Sprite2D" groups=["focus_sprites"]]
+z_index = 2
 texture = ExtResource("1_w0fqg")
 script = ExtResource("2_ks448")

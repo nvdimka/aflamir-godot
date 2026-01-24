@@ -5,32 +5,21 @@ class_name Player
 
 @export var speed = 400
 @export var scrolling_speed = 4
-
-
-func _input(event: InputEvent) -> void:
-	match Globals.game_state:
-		Globals.GameState.EXPLORATION:
-			process_interactive_selection(event)
-			process_start_interaction(event)
-		Globals.GameState.INK:
-			process_stop_interaction(event)
-
-
-func _process(_delta):
-	match Globals.game_state:
-		Globals.GameState.EXPLORATION:
-			get_movement()
-			move_and_slide()
-		Globals.GameState.INK:
-			process_scrolling_ink()
+@export var camera_offset_delta = 400
 
 
 func get_movement():
-	velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * speed
+	velocity.x = Input.get_vector("move_left", "move_right", "move_up", "move_down").x * speed
+	velocity.y = Input.get_vector("move_left", "move_right", "move_up", "move_down").y * (speed / 1.5)
 
 
-func get_scrolling() -> float:
-	return Input.get_axis("scroll_up", "scroll_down")
+func get_right_joy() -> Vector2:
+	return Input.get_vector("right_joy_left", "right_joy_right", "right_joy_up", "right_joy_down")
+
+
+func process_camera_with_joy():
+	var offset = get_right_joy() * camera_offset_delta
+	%Camera.offset = lerp(%Camera.offset, offset, 0.025)
 
 
 func process_start_interaction(event: InputEvent):
@@ -45,7 +34,7 @@ func process_stop_interaction(event: InputEvent):
 
 
 func process_scrolling_ink():
-	var scroll_delta = get_scrolling() * scrolling_speed
+	var scroll_delta = get_right_joy().y * scrolling_speed
 	%InkModal.get_node("%Scroll").scroll_vertical += scroll_delta
 
 
@@ -68,6 +57,24 @@ func process_interactive_selection(event: InputEvent) -> void:
 			interactives[next_idx].is_focused = true
 
 
-# TODO do i need to do this?
 func _ready() -> void:
 	Globals.player_node = self
+
+
+func _input(event: InputEvent) -> void:
+	match Globals.game_state:
+		Globals.GameState.EXPLORATION:
+			process_interactive_selection(event)
+			process_start_interaction(event)
+		Globals.GameState.INK:
+			process_stop_interaction(event)
+
+
+func _process(_delta):
+	match Globals.game_state:
+		Globals.GameState.EXPLORATION:
+			get_movement()
+			move_and_slide()
+			process_camera_with_joy()
+		Globals.GameState.INK:
+			process_scrolling_ink()
