@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://qh6usriewmdr"]
+
+[ext_resource type="Theme" uid="uid://b4g580rknv371" path="res://ui/themes/ink_theme.tres" id="1_6idrp"]
+[ext_resource type="Script" uid="uid://dbap0gqox0ty1" path="res://addons/markdownlabel/markdownlabel.gd" id="2_fp6m0"]
+[ext_resource type="Script" uid="uid://dcx7crs23nf4" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="3_vdj3h"]
+[ext_resource type="Script" uid="uid://d0sin64i4v3op" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="4_f40j0"]
+[ext_resource type="Script" uid="uid://dlok0dv1tq2bf" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="5_5t7ig"]
+[ext_resource type="Script" uid="uid://bayuh2vafablg" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="6_nbilx"]
+[ext_resource type="Script" uid="uid://dfr1w7u3jgni3" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="7_i3wn5"]
+[ext_resource type="Script" uid="uid://bsi6dexoofpe6" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="8_mewnf"]
+
+[sub_resource type="Resource" id="Resource_s7ywi"]
+resource_local_to_scene = true
+script = ExtResource("3_vdj3h")
+
+[sub_resource type="Resource" id="Resource_o6nse"]
+resource_local_to_scene = true
+script = ExtResource("4_f40j0")
+
+[sub_resource type="Resource" id="Resource_xxakf"]
+resource_local_to_scene = true
+script = ExtResource("5_5t7ig")
+
+[sub_resource type="Resource" id="Resource_ltbcq"]
+resource_local_to_scene = true
+script = ExtResource("6_nbilx")
+
+[sub_resource type="Resource" id="Resource_tsmjm"]
+resource_local_to_scene = true
+script = ExtResource("7_i3wn5")
+
+[sub_resource type="Resource" id="Resource_1t4qf"]
+resource_local_to_scene = true
+script = ExtResource("8_mewnf")
+
+[node name="InkChoiceButton" type="PanelContainer" unique_id=230157954]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=1184484705]
+unique_name_in_owner = true
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_6idrp")
+alignment = 0
+autowrap_mode = 3
+autowrap_trim_flags = 192
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1374220132]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer" unique_id=737151226]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_6idrp")
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+scroll_following = true
+scroll_following_visible_characters = true
+tab_size = 8
+justification_flags = 67
+script = ExtResource("2_fp6m0")
+markdown_text = "I want to have fuck with you"
+automatic_links = false
+assume_https_links = false
+h1 = SubResource("Resource_s7ywi")
+h2 = SubResource("Resource_o6nse")
+h3 = SubResource("Resource_xxakf")
+h4 = SubResource("Resource_ltbcq")
+h5 = SubResource("Resource_tsmjm")
+h6 = SubResource("Resource_1t4qf")
+metadata/_custom_type_script = "uid://dbap0gqox0ty1"

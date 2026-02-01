@@ -6,10 +6,10 @@
 > Он оборачивается.
 МАЛЬЧИК _(приветливо)_: __ПРИВЕТ!!!!!!!!!!__
 
- + There were two choices. \[b\]There were two choices.\[\b\] There were two choices. __There were two choices.__ There were two choices. There were two choices.
- * There were four lines of content.
- * Three.
- * Four.
+ + There were two choices. __There were two choices.__ There were two choices. _There were two choices._ There were two choices. There were two choices.
+ + There were _four lines_ of content.
+ + Three.
+ + Four.
 + get long text
 	<- test
 

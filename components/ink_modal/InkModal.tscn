@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://cctj84l2ck1fh"]
+[gd_scene format=3 uid="uid://cctj84l2ck1fh"]
 
-[ext_resource type="Script" uid="uid://bm2iwp0se7b2i" path="res://components/ink_modal/ink_modal.gd" id="1_8it83"]
 [ext_resource type="Script" uid="uid://dbap0gqox0ty1" path="res://addons/markdownlabel/markdownlabel.gd" id="1_fnqhx"]
 [ext_resource type="Script" uid="uid://dcx7crs23nf4" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="2_8it83"]
-[ext_resource type="Theme" uid="uid://b4g580rknv371" path="res://themes/ink_theme.tres" id="2_iowbo"]
-[ext_resource type="StyleBox" uid="uid://hdiebggrvba2" path="res://themes/ink_panel.tres" id="3_5jxe8"]
+[ext_resource type="Theme" uid="uid://b4g580rknv371" path="res://ui/themes/ink_theme.tres" id="2_iowbo"]
+[ext_resource type="StyleBox" uid="uid://hdiebggrvba2" path="res://ui/themes/ink_panel.tres" id="3_5jxe8"]
 [ext_resource type="FontVariation" uid="uid://dvawvlr7clhij" path="res://ui/fonts/pt_serif/pt_serif.tres" id="3_olf0n"]
 [ext_resource type="Script" uid="uid://d0sin64i4v3op" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="3_s82qa"]
 [ext_resource type="FontFile" uid="uid://cjincaiyw2604" path="res://ui/fonts/pt_serif/PTSerif-Bold.ttf" id="4_ejl3i"]
@@ -14,7 +13,7 @@
 [ext_resource type="Script" uid="uid://dfr1w7u3jgni3" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="6_budgn"]
 [ext_resource type="FontFile" uid="uid://wkf21eogb3k8" path="res://ui/fonts/pt_serif/PTSerif-Italic.ttf" id="6_vt31k"]
 [ext_resource type="Script" uid="uid://bsi6dexoofpe6" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="7_iowbo"]
-[ext_resource type="PackedScene" uid="uid://qh6usriewmdr" path="res://components/ink_modal/InkChoice.tscn" id="15_mt3c7"]
+[ext_resource type="PackedScene" uid="uid://qh6usriewmdr" path="res://components/ink_modal/InkChoiceButton.tscn" id="15_mt3c7"]
 
 [sub_resource type="Resource" id="Resource_uph3j"]
 resource_local_to_scene = true
@@ -40,36 +39,35 @@ script = ExtResource("6_budgn")
 resource_local_to_scene = true
 script = ExtResource("7_iowbo")
 
-[node name="InkModal" type="Control"]
+[node name="InkModal" type="Control" unique_id=2033996329]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8it83")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1147632896]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 1196.0
 grow_vertical = 2
 
-[node name="Margin" type="MarginContainer" parent="HBoxContainer"]
+[node name="Margin" type="MarginContainer" parent="HBoxContainer" unique_id=1381934945]
 layout_mode = 2
 theme_override_constants/margin_left = 128
 theme_override_constants/margin_top = 400
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 400
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Margin"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Margin" unique_id=1099836225]
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("2_iowbo")
 theme_override_styles/panel = ExtResource("3_5jxe8")
 
-[node name="Padding" type="MarginContainer" parent="HBoxContainer/Margin/PanelContainer"]
+[node name="Padding" type="MarginContainer" parent="HBoxContainer/Margin/PanelContainer" unique_id=1713174472]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 32
@@ -77,18 +75,18 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="Scroll" type="ScrollContainer" parent="HBoxContainer/Margin/PanelContainer/Padding"]
+[node name="Scroll" type="ScrollContainer" parent="HBoxContainer/Margin/PanelContainer/Padding" unique_id=430878815]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(950, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="InkContent" type="VBoxContainer" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll"]
+[node name="InkContent" type="VBoxContainer" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll" unique_id=399839427]
 custom_minimum_size = Vector2(900, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Paragraphs" type="RichTextLabel" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll/InkContent"]
+[node name="Paragraphs" type="RichTextLabel" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll/InkContent" unique_id=680531974]
 unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
@@ -106,10 +104,10 @@ theme_override_font_sizes/italics_font_size = 32
 theme_override_font_sizes/mono_font_size = 32
 bbcode_enabled = true
 fit_content = true
+scroll_active = false
 scroll_following = true
 scroll_following_visible_characters = true
 tab_size = 8
-horizontal_alignment = 3
 justification_flags = 67
 script = ExtResource("1_fnqhx")
 markdown_text = "[indent]Над ним не было ничего уже, кроме _неба_, - высокого неба, не ясного, но все-таки неизмеримо __высокого__, с тихо ползущими по нём серыми облаками. [/indent]
@@ -124,31 +122,30 @@ h5 = SubResource("Resource_se3wf")
 h6 = SubResource("Resource_6lcu5")
 metadata/_custom_type_script = "uid://dbap0gqox0ty1"
 
-[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll/InkContent"]
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll/InkContent" unique_id=2044357122]
 layout_mode = 2
 theme_override_constants/separation = 96
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll/InkContent"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll/InkContent" unique_id=1347490048]
 layout_mode = 2
 theme_override_constants/margin_bottom = 64
 
-[node name="ChoicesContainer" type="VBoxContainer" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll/InkContent/MarginContainer"]
+[node name="ChoicesContainer" type="VBoxContainer" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll/InkContent/MarginContainer" unique_id=1202254554]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 10
 
-[node name="InkChoice" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll/InkContent/MarginContainer/ChoicesContainer" instance=ExtResource("15_mt3c7")]
+[node name="InkChoiceButton" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll/InkContent/MarginContainer/ChoicesContainer" unique_id=1696407385 instance=ExtResource("15_mt3c7")]
 layout_mode = 2
 
-[node name="InkChoice2" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll/InkContent/MarginContainer/ChoicesContainer" instance=ExtResource("15_mt3c7")]
+[node name="InkChoiceButton2" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll/InkContent/MarginContainer/ChoicesContainer" unique_id=581599849 instance=ExtResource("15_mt3c7")]
 layout_mode = 2
-text = "Plz [b]choose[/b]"
 
-[node name="Button" type="Button" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll/InkContent/MarginContainer/ChoicesContainer"]
+[node name="Button" type="Button" parent="HBoxContainer/Margin/PanelContainer/Padding/Scroll/InkContent/MarginContainer/ChoicesContainer" unique_id=17688214]
 layout_mode = 2
 text = "Test1"
 
-[node name="Control" type="Control" parent="HBoxContainer"]
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=1454036397]
 layout_mode = 2
 size_flags_horizontal = 3

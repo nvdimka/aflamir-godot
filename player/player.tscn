@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0b32yll1ttxk"]
+[gd_scene format=3 uid="uid://b0b32yll1ttxk"]
 
 [ext_resource type="Texture2D" uid="uid://dwtykac4clgkb" path="res://npc.png" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://cjjayalkxfiki" path="res://player/player.gd" id="2_mvpqy"]
@@ -7,13 +7,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
 radius = 25.179358
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=779905496]
 visibility_layer = 2
 collision_layer = 2
 script = ExtResource("2_mvpqy")
 
-[node name="Camera" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="." unique_id=1030403970]
 unique_name_in_owner = true
+zoom = Vector2(0.8, 0.8)
 position_smoothing_enabled = true
 drag_left_margin = 0.0
 drag_top_margin = 0.0
@@ -21,16 +22,16 @@ drag_right_margin = 0.0
 drag_bottom_margin = 0.0
 editor_draw_drag_margin = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1897114209]
 position = Vector2(0, -3.725)
 shape = SubResource("CircleShape2D_g1dw6")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=517573522]
 texture = ExtResource("2_g1dw6")
 offset = Vector2(0, -90)
 
-[node name="Canvas" type="CanvasLayer" parent="."]
+[node name="Canvas" type="CanvasLayer" parent="." unique_id=312107597]
 
-[node name="InkModal" parent="Canvas" instance=ExtResource("3_g1dw6")]
+[node name="InkModal" parent="Canvas" unique_id=1073106099 instance=ExtResource("3_g1dw6")]
 unique_name_in_owner = true
 visible = false

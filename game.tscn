@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c5hvmt8w5g4jk"]
+[gd_scene format=3 uid="uid://c5hvmt8w5g4jk"]
 
 [ext_resource type="PackedScene" uid="uid://b0b32yll1ttxk" path="res://player/player.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://b80osqx8x1xxv" path="res://levels/intro_crossroads/roads.png" id="1_eow3j"]
@@ -21,18 +21,18 @@ radius = 8.374843
 radius = 41.0
 height = 124.0
 
-[node name="ExplorationScreen" type="Node2D"]
+[node name="ExplorationScreen" type="Node2D" unique_id=523968320]
 y_sort_enabled = true
 
-[node name="Roads" type="Sprite2D" parent="."]
+[node name="Roads" type="Sprite2D" parent="." unique_id=259533159]
 z_index = -1
 position = Vector2(674, 675)
 texture = ExtResource("1_eow3j")
 
-[node name="Player" parent="." instance=ExtResource("1_80nbo")]
+[node name="Player" parent="." unique_id=577959478 instance=ExtResource("1_80nbo")]
 position = Vector2(520, 1129)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1708231968]
 offset_left = 1020.0
 offset_top = 68.0
 offset_right = 1443.0
@@ -40,7 +40,7 @@ offset_bottom = 226.0
 theme_override_font_sizes/font_size = 116
 text = "LEVEL 1"
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="." unique_id=912421460]
 offset_left = 3460.0
 offset_top = 257.0
 offset_right = 3883.0
@@ -48,85 +48,85 @@ offset_bottom = 415.0
 theme_override_font_sizes/font_size = 116
 text = "LEVEL 2"
 
-[node name="TentEntranceInteractive" parent="." node_paths=PackedStringArray("InteractionComponent", "FocusSprite") instance=ExtResource("2_e2o6t")]
+[node name="TentEntranceInteractive" parent="." unique_id=2010331005 node_paths=PackedStringArray("InteractionComponent", "FocusSprite") instance=ExtResource("2_e2o6t")]
 position = Vector2(1176, 955)
 InteractionComponent = NodePath("TentEntrance")
 FocusSprite = NodePath("Tent/FocusSprite")
 
-[node name="Tent" type="Sprite2D" parent="TentEntranceInteractive"]
+[node name="Tent" type="Sprite2D" parent="TentEntranceInteractive" unique_id=507282216]
 position = Vector2(13.5, -61)
 texture = ExtResource("9_vef74")
 
-[node name="FocusSprite" parent="TentEntranceInteractive/Tent" instance=ExtResource("4_fc0e3")]
+[node name="FocusSprite" parent="TentEntranceInteractive/Tent" unique_id=272011522 instance=ExtResource("4_fc0e3")]
 z_index = 1
 position = Vector2(-66.5, 147)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="TentEntranceInteractive"]
+[node name="StaticBody2D" type="StaticBody2D" parent="TentEntranceInteractive" unique_id=830391916]
 position = Vector2(-74.5, 99)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TentEntranceInteractive/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TentEntranceInteractive/StaticBody2D" unique_id=1706184049]
 position = Vector2(-110, 23)
 polygon = PackedVector2Array(76, -218, -39.5, -200, -80.5, -175, -109, -130, -110, -81, -68, -5, 1, 56, 193, 79, 362, 54, 467.5, -56, 476.5, -107, 443.5, -147, 399, -193, 271, -217)
 
-[node name="PlayerDetection" type="CollisionShape2D" parent="TentEntranceInteractive"]
+[node name="PlayerDetection" type="CollisionShape2D" parent="TentEntranceInteractive" unique_id=527964547]
 position = Vector2(-95.5, 148)
 scale = Vector2(24.015, 24.015)
 shape = SubResource("CircleShape2D_eow3j")
 debug_color = Color(0.7578018, 0.43440104, 0.36946902, 0.41960785)
 
-[node name="TentEntrance" parent="TentEntranceInteractive" node_paths=PackedStringArray("PortalTarget") instance=ExtResource("7_eow3j")]
+[node name="TentEntrance" parent="TentEntranceInteractive" unique_id=1835239760 node_paths=PackedStringArray("PortalTarget") instance=ExtResource("7_eow3j")]
 position = Vector2(-126.5, 251)
 PortalTarget = NodePath("../../TentExitInteractive/TentExit")
 
-[node name="TentExitInteractive" parent="." node_paths=PackedStringArray("InteractionComponent", "FocusSprite") instance=ExtResource("2_e2o6t")]
+[node name="TentExitInteractive" parent="." unique_id=1327015648 node_paths=PackedStringArray("InteractionComponent", "FocusSprite") instance=ExtResource("2_e2o6t")]
 position = Vector2(3635, 603)
 InteractionComponent = NodePath("TentExit")
 FocusSprite = NodePath("FocusSprite")
 
-[node name="FocusSprite" parent="TentExitInteractive" instance=ExtResource("4_fc0e3")]
+[node name="FocusSprite" parent="TentExitInteractive" unique_id=2124451567 instance=ExtResource("4_fc0e3")]
 z_index = 1
 position = Vector2(-71, 24)
 
-[node name="PlayerDetection" type="CollisionShape2D" parent="TentExitInteractive"]
+[node name="PlayerDetection" type="CollisionShape2D" parent="TentExitInteractive" unique_id=1985396588]
 position = Vector2(-79.99999, 92.99999)
 scale = Vector2(24.015, 24.015)
 shape = SubResource("CircleShape2D_feb5d")
 debug_color = Color(0.7578018, 0.43440104, 0.36946902, 0.41960785)
 
-[node name="TentExit" parent="TentExitInteractive" node_paths=PackedStringArray("PortalTarget") instance=ExtResource("7_eow3j")]
+[node name="TentExit" parent="TentExitInteractive" unique_id=2117809679 node_paths=PackedStringArray("PortalTarget") instance=ExtResource("7_eow3j")]
 position = Vector2(-88, 150)
 PortalTarget = NodePath("../../TentEntranceInteractive/TentEntrance")
 
-[node name="Pole" type="StaticBody2D" parent="."]
+[node name="Pole" type="StaticBody2D" parent="." unique_id=914332930]
 position = Vector2(825, 610)
 
-[node name="Pole" type="Sprite2D" parent="Pole"]
+[node name="Pole" type="Sprite2D" parent="Pole" unique_id=1199578405]
 position = Vector2(23, -107)
 texture = ExtResource("3_j5wjh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pole"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pole" unique_id=170975970]
 position = Vector2(0, -42)
 shape = SubResource("CapsuleShape2D_hve3p")
 
-[node name="Crayons" type="Sprite2D" parent="."]
+[node name="Crayons" type="Sprite2D" parent="." unique_id=1393499940]
 position = Vector2(344, 1247)
 texture = ExtResource("4_eow3j")
 
-[node name="FocusSprite" parent="Crayons" instance=ExtResource("4_fc0e3")]
+[node name="FocusSprite" parent="Crayons" unique_id=932276215 instance=ExtResource("4_fc0e3")]
 position = Vector2(65, -126)
 
-[node name="CrayonsInteractive" parent="Crayons" node_paths=PackedStringArray("InteractionComponent", "FocusSprite") instance=ExtResource("2_e2o6t")]
+[node name="CrayonsInteractive" parent="Crayons" unique_id=565095493 node_paths=PackedStringArray("InteractionComponent", "FocusSprite") instance=ExtResource("2_e2o6t")]
 position = Vector2(42, 30)
 InteractionComponent = NodePath("InkComponent")
 FocusSprite = NodePath("../FocusSprite")
 
-[node name="InkComponent" parent="Crayons/CrayonsInteractive" instance=ExtResource("5_7jktm")]
+[node name="InkComponent" parent="Crayons/CrayonsInteractive" unique_id=1583269746 instance=ExtResource("5_7jktm")]
 knot = "crayons"
 
-[node name="CrayonsSprite" parent="Crayons/CrayonsInteractive" instance=ExtResource("3_feb5d")]
+[node name="CrayonsSprite" parent="Crayons/CrayonsInteractive" unique_id=1325780318 instance=ExtResource("3_feb5d")]
 position = Vector2(17, 2)
 
-[node name="PlayerDetection" type="CollisionShape2D" parent="Crayons/CrayonsInteractive"]
+[node name="PlayerDetection" type="CollisionShape2D" parent="Crayons/CrayonsInteractive" unique_id=209678848]
 scale = Vector2(24.015, 24.015)
 shape = SubResource("CircleShape2D_feb5d")
 debug_color = Color(0.7578018, 0.43440104, 0.36946902, 0.41960785)

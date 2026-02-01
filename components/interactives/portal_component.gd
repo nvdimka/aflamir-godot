@@ -23,5 +23,4 @@ func _get_configuration_warnings():
 func start():
 	var camera: Camera2D = Globals.player_node.get_node("%Camera")
 	Globals.player_node.global_position = PortalTarget.global_position
-	# await get_tree().process_frame
 	camera.reset_smoothing()
