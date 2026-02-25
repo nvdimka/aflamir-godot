@@ -41,10 +41,10 @@ theme_override_font_sizes/font_size = 116
 text = "LEVEL 1"
 
 [node name="Label2" type="Label" parent="." unique_id=912421460]
-offset_left = 3460.0
-offset_top = 257.0
-offset_right = 3883.0
-offset_bottom = 415.0
+offset_left = 4001.0
+offset_top = 338.0
+offset_right = 4425.0
+offset_bottom = 496.0
 theme_override_font_sizes/font_size = 116
 text = "LEVEL 2"
 
@@ -79,7 +79,7 @@ position = Vector2(-126.5, 251)
 PortalTarget = NodePath("../../TentExitInteractive/TentExit")
 
 [node name="TentExitInteractive" parent="." unique_id=1327015648 node_paths=PackedStringArray("InteractionComponent", "FocusSprite") instance=ExtResource("2_e2o6t")]
-position = Vector2(3635, 603)
+position = Vector2(4176, 684)
 InteractionComponent = NodePath("TentExit")
 FocusSprite = NodePath("FocusSprite")
 

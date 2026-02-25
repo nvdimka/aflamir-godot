@@ -2,9 +2,9 @@
 
 
 === crayons
-> Мальчик сидит и рисует.
-> Он оборачивается.
-МАЛЬЧИК _(приветливо)_: __ПРИВЕТ!!!!!!!!!!__
+Мальчик сидит и рисует.
+Он оборачивается.
+__МАЛЬЧИК__ _(приветливо)_: ПРИВЕТ!!!!!!!!!!
 
  + There were two choices. __There were two choices.__ There were two choices. _There were two choices._ There were two choices. There were two choices.
  + There were _four lines_ of content.

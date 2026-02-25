@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://bbch54t1sikfm"
+path="res://.godot/imported/_main.ink-c3209b5ccf7a81467d1f95673b6a0af0.res"
+
+[deps]
+
+source_file="res://inks/game-like/_main.ink"
+dest_files=["res://.godot/imported/_main.ink-c3209b5ccf7a81467d1f95673b6a0af0.res"]
+
+[params]
+
+is_main_file=false
+compress=true

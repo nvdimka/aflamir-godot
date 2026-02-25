@@ -47,14 +47,13 @@ func show_next():
 
 	while Globals.ink.GetCanContinue():
 		var new_paragraph = Globals.ink.Continue()
-		if new_paragraph.begins_with(">"):
-			new_paragraph = new_paragraph.remove_char(62) # removes ">"
-			new_paragraph = new_paragraph.insert(0, "[indent]")
-			new_paragraph = new_paragraph.insert(new_paragraph.length() - 1, "[/indent]")
 		text += new_paragraph
 
 	ink_modal.get_node("%Paragraphs").text = text
-	add_choices(Globals.ink.GetCurrentChoices())
+	var choices = Globals.ink.GetCurrentChoices()
+	print(choices)
+	if choices:
+		add_choices(choices)
 	
 
 func add_choices(new_choices: Array[InkChoice]):
